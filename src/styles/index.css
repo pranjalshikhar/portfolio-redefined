@@ -1,1 +1,278 @@
 @import "tailwindcss";
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.011em;
+}
+
+.mono {
+  font-family: "JetBrains Mono", monospace;
+}
+.serif {
+  font-family: "Instrument Serif", Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* ===== BACKGROUND: deep black with subtle noise + soft gradient mesh ===== */
+.bg-base {
+  background-color: #050505;
+  background-image:
+    radial-gradient(
+      ellipse at 15% 20%,
+      rgba(163, 230, 53, 0.05) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 60%,
+      rgba(34, 211, 238, 0.05) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(232, 121, 249, 0.04) 0%,
+      transparent 50%
+    );
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/></svg>");
+}
+
+/* ===== BENTO CARD — dark glass, subtle borders, no heavy glow ===== */
+.card {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 20, 0.8) 0%,
+    rgba(12, 12, 12, 0.9) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  backdrop-filter: blur(12px);
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    180deg,
+    rgba(24, 24, 24, 0.9) 0%,
+    rgba(14, 14, 14, 1) 100%
+  );
+}
+
+/* Subtle top-edge gradient line (accent per card) */
+.card-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+}
+
+/* Very subtle corner glow for feature cards */
+.card-glow::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 60%);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* Micro grid overlay on hero card */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Text color utility */
+.text-dim {
+  color: #737373;
+}
+.text-mid {
+  color: #a3a3a3;
+}
+.text-high {
+  color: #e5e5e5;
+}
+
+/* ===== SIGNATURE HERO TITLE ===== */
+.hero-title {
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  background: linear-gradient(180deg, #fafafa 0%, #fafafa 50%, #737373 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Accent word in hero */
+.hero-accent {
+  position: relative;
+  background: linear-gradient(135deg, #a3e635 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 24px rgba(163, 230, 53, 0.3));
+}
+
+/* ===== PULSE DOT ===== */
+@keyframes pulse-soft {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.5);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(163, 230, 53, 0);
+    opacity: 0.8;
+  }
+}
+.pulse-dot {
+  animation: pulse-soft 2s infinite;
+}
+
+/* ===== NAV ===== */
+.nav-dark {
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===== CHIP / PILL ===== */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+/* ===== SKILL CHIP (takes color per category) ===== */
+.skill-chip {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #d4d4d4;
+  transition: all 0.25s ease;
+}
+.skill-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Arrow icon with hover motion */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 13px;
+  font-family: "JetBrains Mono", monospace;
+  transition: all 0.3s;
+}
+.arrow-link:hover {
+  gap: 10px;
+}
+
+/* Cursor glow (tasteful, small) */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    circle,
+    rgba(163, 230, 53, 0.08) 0%,
+    rgba(34, 211, 238, 0.04) 30%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+}
+
+/* ===== TICKER MARQUEE ===== */
+@keyframes slide-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: slide-left 40s linear infinite;
+}
+
+/* ===== BIG NUMBER STYLE (for stat cards) ===== */
+.big-num {
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}
+
+/* ===== PROJECT CARD HOVER IMAGE/DESC ===== */
+.project-card {
+  cursor: pointer;
+}
+.project-card:hover .project-name {
+  background: linear-gradient(135deg, var(--accent), #fafafa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== Small animated dot row ===== */
+@keyframes dot-pulse-1 {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.dot-1 {
+  animation: dot-pulse-1 2s infinite;
+}
+.dot-2 {
+  animation: dot-pulse-1 2s infinite 0.4s;
+}
+.dot-3 {
+  animation: dot-pulse-1 2s infinite 0.8s;
+}
