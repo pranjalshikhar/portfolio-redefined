@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Shield, Sparkles, Zap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import React from "react";
 import { ProjectBentoCard } from "../components/ProjectBentoCard";
 import { SectionHeader } from "../components/SectionHeader";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
-import { experience as experienceData } from "../data/experience";
-import { projects as projectsData } from "../data/projects";
+import {
+  experience as experienceData,
+  experienceYearsToWords,
+} from "../data/experience";
+import {
+  projectsCountToWords,
+  projects as projectsData,
+} from "../data/projects";
 import { skills as skillsData } from "../data/skills";
+import { stats } from "../data/stats";
 import { tickerItems } from "../data/ticker";
 import { useCursorSpring } from "../hooks/useCursorSpring";
 import { useLocalTime } from "../hooks/useLocalTime";
@@ -134,8 +141,9 @@ export default function Neon() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-mid text-[17px] mt-8 max-w-xl leading-[1.5]"
           >
-            Three years in. Full-stack-focused software engineer translating
-            complex AI/ML workflows into interfaces designed to feel effortless.
+            {experienceYearsToWords} years in. Full-stack-focused software
+            engineer translating complex AI/ML workflows into interfaces
+            designed to feel effortless.
           </motion.p>
 
           <motion.div
@@ -169,7 +177,7 @@ export default function Neon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="card card-accent card-glow col-span-12 md:col-span-8 p-10 md:p-12 min-h-[440px] flex flex-col justify-between"
+            className="card card-accent card-glow col-span-12 p-10 md:p-12 min-h-[440px] flex flex-col justify-between"
             style={{ "--accent": neon.lime }}
           >
             <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
@@ -190,9 +198,9 @@ export default function Neon() {
                 interfaces people actually want to use.
               </h2>
             </div>
-            <p className="text-mid text-[15px] leading-[1.6] max-w-2xl mt-10">
+            <p className="text-mid text-[15px] leading-[1.6] mt-10">
               Strong expertise in React, TypeScript, and Next.js. Currently
-              deployed as a Digital Specialist Engineer, building
+              deployed as a Frontend Specialist Engineer, building
               enterprise-grade applications and AI-driven dashboards that
               translate complex backend workflows into intuitive UIs. A proven
               collaborator across design, backend, and product — focused on
@@ -201,32 +209,7 @@ export default function Neon() {
           </motion.div>
 
           {/* Stat cards */}
-          {[
-            {
-              label: "// TENURE",
-              value: "3+",
-              sub: "years shipping production UI",
-              color: neon.lime,
-              icon: Sparkles,
-              size: "72px",
-            },
-            {
-              label: "// PERFORMANCE",
-              value: "~35%",
-              sub: "bundle size reduced",
-              color: neon.cyan,
-              icon: Zap,
-              size: "64px",
-            },
-            {
-              label: "// TEST COVERAGE",
-              value: "95%",
-              sub: "peak coverage · Jest + RTL",
-              color: neon.magenta,
-              icon: Shield,
-              size: "64px",
-            },
-          ].map(({ label, value, sub, color, icon: Icon, size }, i) => (
+          {stats.map(({ label, value, sub, color, icon: Icon, size }, i) => (
             <motion.div
               key={label}
               initial={{ opacity: 0, y: 30 }}
@@ -292,7 +275,9 @@ export default function Neon() {
                 Senior Analyst · May 2026 → present
               </div>
               <div className="text-dim text-[13px] mt-1">
-                Building on 3+ years as Digital Specialist Engineer at Infosys.
+                Crafting frontend technologies and interfaces for enterprise
+                clients, with a focus on AI-driven applications and scalable UI
+                systems.
               </div>
             </div>
           </motion.div>
@@ -446,7 +431,7 @@ export default function Neon() {
         <section id="work" className="pt-16">
           <SectionHeader
             label="02 — WORK"
-            title="Nine selected projects."
+            title={`${projectsCountToWords} selected projects.`}
             color={neon.magenta}
           />
           <div className="grid grid-cols-12 gap-4">

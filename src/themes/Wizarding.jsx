@@ -1383,7 +1383,7 @@ export default function Wizarding() {
                 color: "#0e1a40",
                 accent: "#946b2d",
                 seal: "🦅",
-                stat: "~35%",
+                stat: "35%",
                 desc: "weight shed from thy bundles — lazy loading, memoization, code splitting",
                 title: "Wisdom",
                 trait: "Wit · Learning",

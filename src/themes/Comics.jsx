@@ -1,6 +1,7 @@
 import React from "react";
 import { FadeUp } from "../components/FadeUp";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
+import { projectsCountToWords } from "../data/projects";
 
 export default function Comics() {
   const projects = [
@@ -100,18 +101,18 @@ export default function Comics() {
       sfx: "SNIKT!",
       issue: "008",
     },
-    {
-      name: "PORTFOLIO V3",
-      tag: "SOURCE",
-      codename: "Project: Origin",
-      headline: "This is the site!",
-      desc: "The current portfolio, engineered with Next.js and Tailwind CSS. The book you're reading!",
-      url: "https://pranjalshikhar.vercel.app/",
-      bg: "#0ea5e9",
-      ink: "#0a0a0a",
-      sfx: "THWIP!",
-      issue: "009",
-    },
+    // {
+    //   name: "PORTFOLIO V3",
+    //   tag: "SOURCE",
+    //   codename: "Project: Origin",
+    //   headline: "This is the site!",
+    //   desc: "The current portfolio, engineered with Next.js and Tailwind CSS. The book you're reading!",
+    //   url: "https://pranjalshikhar.vercel.app/",
+    //   bg: "#0ea5e9",
+    //   ink: "#0a0a0a",
+    //   sfx: "THWIP!",
+    //   issue: "009",
+    // },
   ];
 
   const experience = [
@@ -608,7 +609,7 @@ export default function Comics() {
             </div>
 
             {/* TITLE */}
-            <h1 className="title-huge">PRANJAL!</h1>
+            <h1 className="title-huge">PRANJAL</h1>
             <h2
               className="bowlby mt-4"
               style={{
@@ -627,7 +628,7 @@ export default function Comics() {
             <div className="absolute top-8 right-8 hidden md:block shake-slow">
               <div
                 className="starburst"
-                style={{ fontSize: "2.2rem", padding: "40px 30px" }}
+                style={{ fontSize: "2.2rem", padding: "40px" }}
               >
                 3+
                 <br />
@@ -656,9 +657,9 @@ export default function Comics() {
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { k: "3+", v: "YEARS!", color: "#dc2626" },
-                { k: "~35%", v: "LIGHTER BUNDLES!", color: "#3b82f6" },
+                { k: "35%", v: "LIGHTER BUNDLES!", color: "#3b82f6" },
                 { k: "95%", v: "TEST COVERAGE!", color: "#16a34a" },
-                { k: "9", v: "ISSUES SHIPPED!", color: "#7c3aed" },
+                { k: projects.length, v: "ISSUES SHIPPED!", color: "#7c3aed" },
               ].map((s, i) => (
                 <div
                   key={i}
@@ -947,7 +948,7 @@ export default function Comics() {
         <div className="grid grid-cols-12 gap-5">
           {[
             {
-              k: "~35%",
+              k: "35%",
               v: "LIGHTER BUNDLES!",
               desc: "Lazy loading, memoization, code splitting.",
               bg: "#dc2626",
@@ -1019,7 +1020,7 @@ export default function Comics() {
         <ComicChapter
           num="03"
           label="THE COMPLETE COLLECTION"
-          sfx="9 ISSUES!"
+          sfx={`${projectsCountToWords} ISSUES!`}
         />
 
         <div className="grid grid-cols-12 gap-5">

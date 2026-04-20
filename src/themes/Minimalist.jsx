@@ -3,6 +3,9 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 import { FadeUp } from "../components/FadeUp";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
+import { experience, experienceYears } from "../data/experience";
+import { projects, projectsCountToWords } from "../data/projects";
+import { skills } from "../data/skills";
 
 export default function Minimalist() {
   const heroRef = useRef(null);
@@ -12,200 +15,6 @@ export default function Minimalist() {
   });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-  const projects = [
-    {
-      name: "Aizen",
-      tag: "Developer Tool",
-      headline: "Code, framed.",
-      desc: "Turn your source code into beautiful images and gifs. A small tool that makes sharing snippets a joy.",
-      url: "https://aizen.netlify.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%)",
-      accent: "#c4b5fd",
-    },
-    {
-      name: "Kamui",
-      tag: "Productivity",
-      headline: "Plan with superpowers.",
-      desc: "A Kanban board for planners who want more than columns and cards — task flows with intent.",
-      url: "https://kamui-kanban.netlify.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)",
-      accent: "#6ee7b7",
-    },
-    {
-      name: "Potion",
-      tag: "Workspace",
-      headline: "A faster way to write.",
-      desc: "A connected workspace where better, faster work happens. Notion-style, reimagined.",
-      url: "https://potion-write.vercel.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #18181b 0%, #27272a 100%)",
-      accent: "#fafafa",
-    },
-    {
-      name: "Pokédex",
-      tag: "Explorer",
-      headline: "Gotta catch 'em all.",
-      desc: "An explorer for the creature index with clean cards, type filters, and detail views.",
-      url: "https://pokedex-polly.netlify.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #dc2626 100%)",
-      accent: "#fca5a5",
-    },
-    {
-      name: "Evo Gym",
-      tag: "Landing",
-      headline: "Move, storied.",
-      desc: "A fitness landing experience where motion does the storytelling.",
-      url: "https://evogymm.netlify.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #1c1917 0%, #292524 100%)",
-      accent: "#fbbf24",
-    },
-    {
-      name: "Nike Store",
-      tag: "E-commerce",
-      headline: "Just scroll it.",
-      desc: "A product-focused storefront landing with strong typography and motion hooks.",
-      url: "https://nikestore-polly.netlify.app/",
-      theme: "light",
-      bg: "linear-gradient(135deg, #fafafa 0%, #e5e5e5 100%)",
-      accent: "#171717",
-    },
-    {
-      name: "Crypto Hunter",
-      tag: "Fintech",
-      headline: "Live markets, decoded.",
-      desc: "Track trending cryptocurrencies with live pricing, sorting, and a clean data view.",
-      url: "https://crytocurrencyhunter.netlify.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #0c4a6e 0%, #075985 50%, #0369a1 100%)",
-      accent: "#7dd3fc",
-    },
-    {
-      name: "Red Eye",
-      tag: "Quiz",
-      headline: "What should you watch?",
-      desc: "A question-based system that figures out your movie genre, one tap at a time.",
-      url: "https://red-eye.netlify.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #450a0a 0%, #7f1d1d 100%)",
-      accent: "#fca5a5",
-    },
-    {
-      name: "Portfolio V3",
-      tag: "Source",
-      headline: "This is the site.",
-      desc: "The current portfolio, built on Next.js and Tailwind CSS.",
-      url: "https://pranjalshikhar.vercel.app/",
-      theme: "dark",
-      bg: "linear-gradient(135deg, #020617 0%, #0f172a 100%)",
-      accent: "#38bdf8",
-    },
-  ];
-
-  const experience = [
-    {
-      company: "Accenture",
-      role: "Senior Analyst",
-      period: "May 2026 — Present",
-      active: true,
-      gradient: "linear-gradient(135deg, #a855f7, #6366f1)",
-    },
-    {
-      company: "Infosys",
-      role: "Digital Specialist Engineer L1",
-      period: "Jan 2026 — May 2026",
-      active: false,
-      gradient: "linear-gradient(135deg, #1d4ed8, #0ea5e9)",
-    },
-    {
-      company: "Infosys",
-      role: "Digital Specialist Engineer",
-      period: "Jul 2022 — Dec 2025",
-      active: false,
-      gradient: "linear-gradient(135deg, #1d4ed8, #0ea5e9)",
-    },
-  ];
-
-  // FULL skill breakdown from user's content
-  const skillsFull = [
-    {
-      title: "Programming Languages",
-      items: [
-        "JavaScript (ES6+)",
-        "TypeScript",
-        "Python (working knowledge)",
-        "C",
-      ],
-    },
-    {
-      title: "Frontend Frameworks & Libraries",
-      items: [
-        "React.js",
-        "Next.js",
-        "Redux Toolkit",
-        "Angular (working exposure)",
-        "ReactFlow",
-      ],
-    },
-    {
-      title: "Styling & UI Systems",
-      items: ["Tailwind CSS", "shadcn/ui", "Material UI", "Bootstrap"],
-    },
-    {
-      title: "Backend & APIs",
-      items: [
-        "REST APIs",
-        "GraphQL",
-        "API contract design",
-        ".NET Core integration",
-      ],
-    },
-    {
-      title: "Databases",
-      items: ["MySQL (SQL)", "Azure CosmosDB (NoSQL)"],
-    },
-    {
-      title: "Cloud & DevOps",
-      items: [
-        "Microsoft Azure",
-        "Azure Blob Storage",
-        "Azure DevOps Pipelines",
-        "Firebase",
-      ],
-    },
-    {
-      title: "Testing & Quality",
-      items: [
-        "Jest",
-        "React Testing Library",
-        "Unit testing",
-        "Integration testing",
-      ],
-    },
-    {
-      title: "Design & Collaboration",
-      items: [
-        "Figma",
-        "UI/UX prototyping",
-        "Developer handoff",
-        "Git",
-        "VS Code",
-      ],
-    },
-    {
-      title: "Software Engineering",
-      items: [
-        "Component-driven architecture",
-        "Design principles",
-        "Performance optimization",
-        "Scalable frontend architecture",
-      ],
-    },
-  ];
 
   return (
     <div
@@ -500,7 +309,7 @@ export default function Minimalist() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-14 pt-10 border-t border-white/10">
                 {[
                   { k: "3+", v: "years of experience" },
-                  { k: "~35%", v: "bundle size reduced" },
+                  { k: "35%", v: "bundle size reduced" },
                   { k: "95%", v: "peak test coverage" },
                   { k: "9", v: "projects shipped" },
                 ].map((s) => (
@@ -619,7 +428,7 @@ export default function Minimalist() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  ~35%
+                  35%
                 </div>
                 <p className="apple-body text-[15px] text-[#1d1d1f]/60 mt-3">
                   Bundle size reduced and load times improved through lazy
@@ -666,7 +475,7 @@ export default function Minimalist() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  3+
+                  {experienceYears}
                 </div>
                 <p className="apple-body text-[15px] text-[#1d1d1f]/60 mt-3">
                   Years shipping production interfaces — across enterprise
@@ -685,7 +494,7 @@ export default function Minimalist() {
         <FadeUp>
           <SectionHeader
             eyebrow="Selected work"
-            title="Nine projects. One philosophy."
+            title={`${projectsCountToWords} projects. One philosophy.`}
             subtitle="A mix of developer tools, landing experiences, and full product explorations."
           />
         </FadeUp>
@@ -727,7 +536,7 @@ export default function Minimalist() {
         </FadeUp>
 
         <div className="grid grid-cols-12 gap-[10px]">
-          {skillsFull.map((s, i) => {
+          {skills.map((s, i) => {
             // Size variance for visual rhythm
             const spanMap = [
               "col-span-12 md:col-span-6", // Languages - big

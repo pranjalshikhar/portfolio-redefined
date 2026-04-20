@@ -18,7 +18,9 @@ function ThemeRenderer() {
   const Component = THEME_MAP[theme];
   return (
     <Suspense
-      fallback={<div style={{ minHeight: "100vh", backgroundColor: "#050505" }} />}
+      fallback={
+        <div style={{ minHeight: "100vh", backgroundColor: "#050505" }} />
+      }
     >
       <Component />
     </Suspense>

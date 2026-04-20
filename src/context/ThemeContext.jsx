@@ -12,10 +12,13 @@ export const THEME_LABELS = {
 };
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("neon");
+  const [theme, setTheme] = useState(
+    () => sessionStorage.getItem("theme") ?? "neon"
+  );
 
   function switchTheme(next) {
     setTheme(next);
+    sessionStorage.setItem("theme", next);
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
