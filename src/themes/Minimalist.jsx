@@ -1,7 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { FadeUp } from "../components/FadeUp";
+import ChevronRightTiny from "../components/minimalist/ChevronRightTiny";
+import ProjectCard from "../components/minimalist/ProjectCard";
+import Section from "../components/minimalist/Section";
+import SectionHeader from "../components/minimalist/SectionHeader";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
 import { experience, experienceYears } from "../data/experience";
 import { projects, projectsCountToWords } from "../data/projects";
@@ -18,7 +22,7 @@ export default function Minimalist() {
 
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen minimalist-container"
       style={{
         backgroundColor: "#fbfbfd",
         color: "#1d1d1f",
@@ -162,7 +166,7 @@ export default function Minimalist() {
 
       {/* NAV */}
       <nav className="nav-apple sticky top-0 z-50">
-        <div className="max-w-[1024px] mx-auto px-5 h-11 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-5 h-11 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
               <path
@@ -207,7 +211,7 @@ export default function Minimalist() {
         style={{ y: heroY, opacity: heroOpacity }}
         className="pt-16 pb-20 px-5"
       >
-        <div className="max-w-[1024px] mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -275,7 +279,7 @@ export default function Minimalist() {
       <Section id="summary">
         <FadeUp>
           <div
-            className="tile tile-dark p-10 md:p-20 min-h-[560px] flex flex-col justify-between"
+            className="tile tile-dark p-10 md:p-20 min-h-140 flex flex-col justify-between"
             style={{
               background:
                 "radial-gradient(ellipse at 20% 20%, rgba(120,119,198,0.35), transparent 50%), radial-gradient(ellipse at 80% 10%, rgba(255,119,198,0.3), transparent 50%), radial-gradient(ellipse at 50% 90%, rgba(120,219,226,0.3), transparent 55%), #0a0a0f",
@@ -296,7 +300,7 @@ export default function Minimalist() {
             </div>
 
             <div className="relative mt-16">
-              <p className="apple-body text-[19px] md:text-[21px] text-white/70 max-w-3xl leading-[1.5]">
+              <p className="apple-body text-[19px] md:text-[21px] text-white/70 max-w-3xl leading-normal">
                 Three-plus years building scalable, high-performance web
                 applications with React, TypeScript, and modern JavaScript.
                 Currently shipping enterprise-grade applications and AI-driven
@@ -308,7 +312,7 @@ export default function Minimalist() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-14 pt-10 border-t border-white/10">
                 {[
-                  { k: "3+", v: "years of experience" },
+                  { k: experienceYears, v: "years of experience" },
                   { k: "35%", v: "bundle size reduced" },
                   { k: "95%", v: "peak test coverage" },
                   { k: "9", v: "projects shipped" },
@@ -340,9 +344,9 @@ export default function Minimalist() {
           />
         </FadeUp>
 
-        <div className="grid grid-cols-12 gap-[10px]">
+        <div className="grid grid-cols-12 gap-2.5">
           <FadeUp className="col-span-12 md:col-span-6">
-            <div className="tile lift p-10 md:p-12 min-h-[520px] flex flex-col justify-between bg-white">
+            <div className="tile lift p-10 md:p-12 min-h-130 flex flex-col justify-between bg-white">
               <div className="apple-eyebrow text-[#86868b]">The practice</div>
               <div>
                 <h3 className="apple-headline text-title-1 mb-5">
@@ -371,7 +375,7 @@ export default function Minimalist() {
 
           <FadeUp className="col-span-12 md:col-span-6">
             <div
-              className="tile tile-dark lift p-10 md:p-12 min-h-[520px] flex flex-col justify-between relative"
+              className="tile tile-dark lift p-10 md:p-12 min-h-130 flex flex-col justify-between relative"
               style={{
                 background:
                   "linear-gradient(135deg, #0a0e27 0%, #1e3a8a 50%, #312e81 100%)",
@@ -415,9 +419,9 @@ export default function Minimalist() {
       {/* STAT TILES — like iPhone "18-core GPU" callouts         */}
       {/* ====================================================== */}
       <Section>
-        <div className="grid grid-cols-12 gap-[10px]">
+        <div className="grid grid-cols-12 gap-2.5">
           <FadeUp className="col-span-12 md:col-span-4">
-            <div className="tile lift p-10 min-h-[340px] flex flex-col justify-between bg-white">
+            <div className="tile lift p-10 min-h-85 flex flex-col justify-between bg-white">
               <div className="apple-eyebrow text-[#86868b]">Performance</div>
               <div>
                 <div
@@ -440,7 +444,7 @@ export default function Minimalist() {
 
           <FadeUp className="col-span-12 md:col-span-4">
             <div
-              className="tile lift p-10 min-h-[340px] flex flex-col justify-between"
+              className="tile lift p-10 min-h-85 flex flex-col justify-between"
               style={{ background: "#1d1d1f", color: "#f5f5f7" }}
             >
               <div className="apple-eyebrow text-white/60">Test coverage</div>
@@ -464,7 +468,7 @@ export default function Minimalist() {
           </FadeUp>
 
           <FadeUp className="col-span-12 md:col-span-4">
-            <div className="tile lift p-10 min-h-[340px] flex flex-col justify-between bg-white">
+            <div className="tile lift p-10 min-h-85 flex flex-col justify-between bg-white">
               <div className="apple-eyebrow text-[#86868b]">Experience</div>
               <div>
                 <div
@@ -499,7 +503,7 @@ export default function Minimalist() {
           />
         </FadeUp>
 
-        <div className="grid grid-cols-12 gap-[10px]">
+        <div className="grid grid-cols-12 gap-2.5">
           {/* Two-up hero */}
           {projects.slice(0, 2).map((p) => (
             <FadeUp key={p.name} className="col-span-12 md:col-span-6">
@@ -535,7 +539,7 @@ export default function Minimalist() {
           />
         </FadeUp>
 
-        <div className="grid grid-cols-12 gap-[10px]">
+        <div className="grid grid-cols-12 gap-2.5">
           {skills.map((s, i) => {
             // Size variance for visual rhythm
             const spanMap = [
@@ -554,7 +558,7 @@ export default function Minimalist() {
             return (
               <FadeUp key={s.title} className={spanMap[i]}>
                 <div
-                  className="tile lift p-8 md:p-10 min-h-[260px] flex flex-col justify-between relative"
+                  className="tile lift p-8 md:p-10 min-h-65 flex flex-col justify-between relative"
                   style={{
                     background: dark
                       ? "linear-gradient(135deg, #1d1d1f 0%, #2c2c2e 100%)"
@@ -614,9 +618,9 @@ export default function Minimalist() {
           />
         </FadeUp>
 
-        <div className="grid grid-cols-12 gap-[10px]">
+        <div className="grid grid-cols-12 gap-2.5">
           <FadeUp className="col-span-12 md:col-span-8">
-            <div className="tile lift p-10 md:p-12 bg-white min-h-[380px] flex flex-col justify-between">
+            <div className="tile lift p-10 md:p-12 bg-white min-h-95 flex flex-col justify-between">
               <div className="apple-eyebrow text-[#86868b]">
                 End-to-end ownership
               </div>
@@ -641,7 +645,7 @@ export default function Minimalist() {
 
           <FadeUp className="col-span-12 md:col-span-4">
             <div
-              className="tile lift p-8 md:p-10 min-h-[380px] flex flex-col justify-between relative"
+              className="tile lift p-8 md:p-10 min-h-95 flex flex-col justify-between relative"
               style={{
                 background: "linear-gradient(135deg, #ff9500 0%, #ff375f 100%)",
                 color: "#fff",
@@ -679,7 +683,7 @@ export default function Minimalist() {
 
         <FadeUp>
           <div className="tile bg-white p-6 md:p-10">
-            <div className="divide-y divide-black/[0.06]">
+            <div className="divide-y divide-black/6">
               {experience.map((e, i) => (
                 <div
                   key={i}
@@ -766,16 +770,14 @@ export default function Minimalist() {
 
       {/* FOOTER — Apple's dense grey footer */}
       <footer
-        className="border-t border-black/[0.08] mt-10"
+        className="border-t border-black/8 mt-10"
         style={{ backgroundColor: "#f5f5f7" }}
       >
-        <div className="max-w-[1024px] mx-auto px-5 py-6 text-[12px] text-[#86868b]">
-          <p className="max-w-3xl leading-[1.5]">
-            Copyright © 2026 Pranjal Shikhar Sinha. All rights reserved. Based
-            in Pune, Maharashtra. Designed and built with care, in React and
-            TypeScript.
+        <div className="max-w-5xl mx-auto px-5 py-6 text-[12px] text-[#86868b]">
+          <p className="max-w-3xl leading-normal">
+            Copyright © 2026 Pranjal Shikhar Sinha. All rights reserved.
           </p>
-          <div className="mt-4 pt-4 border-t border-black/[0.08] flex items-center justify-between flex-wrap gap-3">
+          <div className="mt-4 pt-4 border-t border-black/8 flex items-center justify-between flex-wrap gap-3">
             <div className="flex gap-5">
               <a
                 href="mailto:shikhar.pranjal3@gmail.com"
@@ -813,120 +815,5 @@ export default function Minimalist() {
         </div>
       </footer>
     </div>
-  );
-}
-
-/* ---------- Helpers ---------- */
-
-function Section({ children, id }) {
-  return (
-    <section id={id} className="max-w-[1024px] mx-auto px-5 mb-[10px]">
-      {children}
-    </section>
-  );
-}
-
-function SectionHeader({ eyebrow, title, subtitle }) {
-  return (
-    <div className="text-center pt-20 pb-12">
-      <div className="apple-eyebrow text-[#0071e3] mb-3">{eyebrow}</div>
-      <h2 className="apple-display text-mega">
-        {title}
-        {subtitle && (
-          <>
-            <br />
-            <span className="text-[#86868b]">{subtitle}</span>
-          </>
-        )}
-      </h2>
-    </div>
-  );
-}
-
-function ProjectCard({ p, size }) {
-  const sizes = {
-    large: {
-      h: "min-h-[460px]",
-      pad: "p-10 md:p-12",
-      titleCls: "text-[44px] md:text-[56px]",
-      headCls: "text-[28px] md:text-[34px]",
-    },
-    medium: {
-      h: "min-h-[360px]",
-      pad: "p-8 md:p-10",
-      titleCls: "text-[36px] md:text-[42px]",
-      headCls: "text-[22px] md:text-[26px]",
-    },
-    small: {
-      h: "min-h-[280px]",
-      pad: "p-6 md:p-7",
-      titleCls: "text-[26px] md:text-[30px]",
-      headCls: "text-[17px]",
-    },
-  }[size];
-
-  const color = p.theme === "dark" ? "#f5f5f7" : "#1d1d1f";
-  const muted =
-    p.theme === "dark" ? "rgba(255,255,255,0.55)" : "rgba(29,29,31,0.6)";
-
-  return (
-    <a href={p.url} target="_blank" rel="noopener noreferrer">
-      <div
-        className={`tile lift ${sizes.pad} ${sizes.h} flex flex-col justify-between relative`}
-        style={{ background: p.bg, color }}
-      >
-        <div className="noise-soft" />
-        <div className="relative flex items-start justify-between">
-          <div className="apple-eyebrow" style={{ color: muted }}>
-            {p.tag}
-          </div>
-          <ArrowUpRight className="w-4 h-4" style={{ color: p.accent }} />
-        </div>
-        <div className="relative">
-          <div
-            className={`apple-display ${sizes.titleCls} leading-[0.95]`}
-            style={{ color: p.accent }}
-          >
-            {p.name}
-          </div>
-          {size !== "small" && (
-            <div
-              className={`apple-headline ${sizes.headCls} mt-2`}
-              style={{ color }}
-            >
-              {p.headline}
-            </div>
-          )}
-          <p
-            className={`apple-body mt-2.5 ${size === "small" ? "text-[12.5px]" : "text-[15px]"} max-w-md`}
-            style={{ color: muted }}
-          >
-            {p.desc}
-          </p>
-          {size === "large" && (
-            <div
-              className="mt-5 inline-flex items-center gap-1 text-[15px]"
-              style={{ color: p.accent }}
-            >
-              Open project <ChevronRightTiny />
-            </div>
-          )}
-        </div>
-      </div>
-    </a>
-  );
-}
-
-function ChevronRightTiny() {
-  return (
-    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-      <path
-        d="M4 2L7 5L4 8"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
