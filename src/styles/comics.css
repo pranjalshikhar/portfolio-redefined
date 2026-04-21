@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Bowlby+One&family=Luckiest+Guy&family=Permanent+Marker&family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+.comics-container {
+  -webkit-font-smoothing: antialiased;
+}
+
+.bangers {
+  font-family: "Bangers", "Impact", sans-serif;
+  letter-spacing: 0.04em;
+}
+.bowlby {
+  font-family: "Bowlby One", "Impact", sans-serif;
+  letter-spacing: 0.01em;
+}
+.lucky {
+  font-family: "Luckiest Guy", "Bangers", sans-serif;
+  letter-spacing: 0.03em;
+}
+.marker {
+  font-family: "Permanent Marker", cursive;
+}
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+/* ============== NEWSPRINT BG ============== */
+.newsprint {
+  background-color: #f5e9cf;
+  background-image:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(220, 38, 38, 0.04),
+      transparent 50%
+    ),
+    url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/><feColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.3 0 0 0 0 0.1 0 0 0 0.2 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size:
+    100% 100%,
+    200px 200px;
+}
+
+/* ============== HALFTONE DOTS (Ben-Day) ============== */
+.dots-red {
+  background-image: radial-gradient(circle, #dc2626 1.5px, transparent 2px);
+  background-size: 8px 8px;
+}
+.dots-yellow {
+  background-image: radial-gradient(circle, #fbbf24 1.5px, transparent 2px);
+  background-size: 8px 8px;
+}
+.dots-blue {
+  background-image: radial-gradient(circle, #3b82f6 1.5px, transparent 2px);
+  background-size: 8px 8px;
+}
+.dots-black {
+  background-image: radial-gradient(circle, #0a0a0a 1px, transparent 1.5px);
+  background-size: 6px 6px;
+}
+.dots-large {
+  background-image: radial-gradient(circle, #0a0a0a 2.5px, transparent 3px);
+  background-size: 14px 14px;
+}
+
+/* ============== COMIC PANEL ============== */
+.panel-comic {
+  border: 4px solid #0a0a0a;
+  box-shadow:
+    6px 6px 0 #0a0a0a,
+    10px 10px 0 rgba(10, 10, 10, 0.15);
+  position: relative;
+  transition: all 0.2s ease;
+}
+.panel-comic:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    8px 8px 0 #0a0a0a,
+    14px 14px 0 rgba(10, 10, 10, 0.15);
+}
+
+.panel-thin {
+  border: 3px solid #0a0a0a;
+  box-shadow: 4px 4px 0 #0a0a0a;
+}
+
+/* ============== SPEECH BUBBLE ============== */
+.speech {
+  background: #ffffff;
+  border: 3px solid #0a0a0a;
+  border-radius: 24px;
+  position: relative;
+  padding: 16px 22px;
+  box-shadow: 4px 4px 0 #0a0a0a;
+}
+.speech::before {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-top-color: #0a0a0a;
+  border-bottom: 0;
+}
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 43px;
+  width: 0;
+  height: 0;
+  border: 9px solid transparent;
+  border-top-color: #ffffff;
+  border-bottom: 0;
+}
+
+/* ============== THOUGHT BUBBLE (cloud) ============== */
+.thought-bubble {
+  background: #ffffff;
+  border: 3px solid #0a0a0a;
+  border-radius: 60px;
+  padding: 14px 24px;
+  position: relative;
+  box-shadow: 4px 4px 0 #0a0a0a;
+}
+
+/* ============== CAPTION BOX (yellow) ============== */
+.caption-box {
+  background: #fbbf24;
+  border: 3px solid #0a0a0a;
+  padding: 12px 18px;
+  position: relative;
+  box-shadow: 4px 4px 0 #0a0a0a;
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+/* ============== STARBURST (POW! shape) ============== */
+.starburst {
+  position: relative;
+  background: #fbbf24;
+  color: #0a0a0a;
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 0.02em;
+  text-align: center;
+  /* 24-point star */
+  clip-path: polygon(
+    50% 0%,
+    55% 8%,
+    65% 5%,
+    62% 15%,
+    72% 12%,
+    66% 22%,
+    78% 22%,
+    70% 30%,
+    82% 33%,
+    72% 38%,
+    83% 47%,
+    72% 50%,
+    83% 58%,
+    72% 62%,
+    82% 72%,
+    70% 72%,
+    78% 83%,
+    66% 80%,
+    72% 92%,
+    62% 88%,
+    65% 98%,
+    55% 92%,
+    50% 100%,
+    45% 92%,
+    35% 98%,
+    38% 88%,
+    28% 92%,
+    34% 80%,
+    22% 83%,
+    30% 72%,
+    18% 72%,
+    28% 62%,
+    17% 58%,
+    28% 50%,
+    17% 47%,
+    28% 38%,
+    18% 33%,
+    30% 30%,
+    22% 22%,
+    34% 22%,
+    28% 12%,
+    38% 15%,
+    35% 5%,
+    45% 8%
+  );
+  filter: drop-shadow(4px 4px 0 #0a0a0a);
+}
+
+/* ============== EXPLOSION BURST shape ============== */
+.burst-shape {
+  clip-path: polygon(
+    50% 0%,
+    58% 15%,
+    75% 8%,
+    68% 25%,
+    90% 22%,
+    75% 40%,
+    100% 45%,
+    80% 55%,
+    95% 75%,
+    72% 70%,
+    80% 92%,
+    60% 80%,
+    50% 100%,
+    40% 80%,
+    20% 92%,
+    28% 70%,
+    5% 75%,
+    20% 55%,
+    0% 45%,
+    25% 40%,
+    10% 22%,
+    32% 25%,
+    25% 8%,
+    42% 15%
+  );
+}
+
+/* ============== SFX TEXT STYLING ============== */
+.sfx-text {
+  font-family: "Bangers", sans-serif;
+  -webkit-text-stroke: 3px #0a0a0a;
+  color: #fef3c7;
+  text-shadow:
+    4px 4px 0 #0a0a0a,
+    -1px -1px 0 #0a0a0a,
+    1px -1px 0 #0a0a0a,
+    -1px 1px 0 #0a0a0a;
+  letter-spacing: 0.04em;
+  display: inline-block;
+  transform: rotate(-4deg);
+}
+
+/* ============== JAGGED MOTION LINES ============== */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-3deg);
+  }
+  25% {
+    transform: translate(-2px, 1px) rotate(-4deg);
+  }
+  50% {
+    transform: translate(2px, -1px) rotate(-2deg);
+  }
+  75% {
+    transform: translate(-1px, 2px) rotate(-4deg);
+  }
+}
+.shake-slow {
+  animation: shake 2s ease-in-out infinite;
+}
+
+/* ============== STAMP ============== */
+.stamp {
+  border: 4px solid #dc2626;
+  color: #dc2626;
+  padding: 8px 20px;
+  transform: rotate(-6deg);
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  background: rgba(254, 243, 199, 0.8);
+}
+
+/* ============== TITLE MASSIVE ============== */
+.title-huge {
+  font-family: "Bowlby One", sans-serif;
+  font-size: clamp(3.5rem, 14vw, 12rem);
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+  color: #fbbf24;
+  -webkit-text-stroke: 4px #0a0a0a;
+  text-shadow:
+    6px 6px 0 #dc2626,
+    8px 8px 0 #0a0a0a;
+}
+
+/* ============== ACTION LINES (conic radial) ============== */
+.action-burst {
+  background-image: repeating-conic-gradient(
+    from 0deg,
+    #fbbf24 0deg,
+    #fbbf24 6deg,
+    #0a0a0a 6deg,
+    #0a0a0a 7deg,
+    #fbbf24 7deg,
+    #fbbf24 13deg,
+    transparent 13deg,
+    transparent 14deg
+  );
+}
+
+.action-yellow {
+  background-image: repeating-conic-gradient(
+    from 0deg,
+    #fde68a 0deg,
+    #fde68a 4deg,
+    #fbbf24 4deg,
+    #fbbf24 6deg
+  );
+}
+
+/* ============== DIAGONAL STRIPES (speed lines) ============== */
+.speed-lines {
+  background-image: repeating-linear-gradient(
+    -25deg,
+    #0a0a0a 0,
+    #0a0a0a 3px,
+    transparent 3px,
+    transparent 14px
+  );
+}
+
+/* ============== ISSUE STRIP (like comic header) ============== */
+.issue-strip {
+  background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+  color: #fef3c7;
+  border-bottom: 4px solid #0a0a0a;
+}
+
+/* ============== MARQUEE ============== */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marq {
+  animation: slide 30s linear infinite;
+}
+
+/* ============== NAV ============== */
+.nav-comic {
+  background: #fbbf24;
+  border-bottom: 4px solid #0a0a0a;
+  box-shadow: 0 4px 0 #0a0a0a;
+}
+
+/* ============== DIVIDER ============== */
+.comic-hr {
+  height: 6px;
+  background: #0a0a0a;
+  position: relative;
+}
+.comic-hr::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #dc2626;
+}
+
+/* ============== TAG ============== */
+.tag-comic {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #0a0a0a;
+  color: #fbbf24;
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  border: 2px solid #0a0a0a;
+  transform: rotate(-1deg);
+}
+
+/* ============== BIG NUMBER ============== */
+.giant-num {
+  font-family: "Bowlby One", sans-serif;
+  color: #fbbf24;
+  -webkit-text-stroke: 3px #0a0a0a;
+  text-shadow:
+    4px 4px 0 #dc2626,
+    6px 6px 0 #0a0a0a;
+  line-height: 1;
+}
+
+/* Floating sfx random positions */
+.float-sfx {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.8;
+}

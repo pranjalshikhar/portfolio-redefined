@@ -18,6 +18,10 @@ export const experience = [
     ...(isMinimalist && {
       gradient: "linear-gradient(135deg, #a855f7, #6366f1)",
     }),
+    ...(isComics && {
+      insignia: "A",
+      classification: "LEVEL 7 · ACTIVE",
+    }),
   },
   {
     company: "Infosys",
@@ -30,6 +34,10 @@ export const experience = [
     ...(isMinimalist && {
       gradient: "linear-gradient(135deg, #1d4ed8, #0ea5e9)",
     }),
+    ...(isComics && {
+      insignia: "I",
+      classification: "LEVEL 6 · ARCHIVED",
+    }),
   },
   {
     company: "Infosys",
@@ -41,6 +49,10 @@ export const experience = [
     }),
     ...(isMinimalist && {
       gradient: "linear-gradient(135deg, #1d4ed8, #0ea5e9)",
+    }),
+    ...(isComics && {
+      insignia: "I",
+      classification: "LEVEL 5 · ARCHIVED",
     }),
   },
 ];
