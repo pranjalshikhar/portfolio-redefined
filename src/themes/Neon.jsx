@@ -71,7 +71,7 @@ export default function Neon() {
 
       {/* ============== NAV ============== */}
       <nav className="nav-dark sticky top-0 z-40">
-        <div className="max-w-[1200px] mx-auto px-6 h-12 flex items-center justify-between">
+        <div className="max-w-300 mx-auto px-6 h-12 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div
               className="w-2 h-2 rounded-full pulse-dot"
@@ -98,7 +98,7 @@ export default function Neon() {
         </div>
       </nav>
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 py-10">
+      <div className="relative z-10 max-w-300 mx-auto px-6 py-10">
         {/* ============== HERO ============== */}
         <section className="pt-8 pb-6">
           <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
@@ -139,7 +139,7 @@ export default function Neon() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-mid text-[17px] mt-8 max-w-xl leading-[1.5]"
+            className="text-mid text-[17px] mt-8 max-w-xl leading-normal"
           >
             {experienceYearsToWords} years in. Full-stack-focused software
             engineer translating complex AI/ML workflows into interfaces
@@ -177,7 +177,7 @@ export default function Neon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="card card-accent card-glow col-span-12 p-10 md:p-12 min-h-[440px] flex flex-col justify-between"
+            className="card card-accent card-glow col-span-12 p-10 md:p-12 min-h-110 flex flex-col justify-between"
             style={{ "--accent": neon.lime }}
           >
             <div className="absolute inset-0 grid-overlay opacity-30 pointer-events-none" />
@@ -216,7 +216,7 @@ export default function Neon() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 + i * 0.05 }}
-              className="card card-accent col-span-6 md:col-span-4 p-8 min-h-[210px] flex flex-col justify-between"
+              className="card card-accent col-span-12 md:col-span-4 p-8 min-h-52.5 flex flex-col justify-between"
               style={{ "--accent": color }}
             >
               <div className="flex items-center justify-between">
@@ -247,7 +247,7 @@ export default function Neon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="card card-accent card-glow col-span-12 md:col-span-7 p-8 md:p-10 min-h-[240px] flex flex-col justify-between"
+            className="card card-accent card-glow col-span-12 md:col-span-7 p-8 md:p-10 min-h-60 flex flex-col justify-between"
             style={{ "--accent": neon.amber }}
           >
             <div className="flex items-center justify-between">
@@ -269,10 +269,10 @@ export default function Neon() {
                 className="serif italic text-[48px] md:text-[60px] leading-none"
                 style={{ color: "#fafafa" }}
               >
-                Accenture
+                {experience[0].company}
               </div>
               <div className="text-mid text-[15px] mt-2">
-                Senior Analyst · May 2026 → present
+                {experience[0].role} · {experience[0].period}
               </div>
               <div className="text-dim text-[13px] mt-1">
                 Crafting frontend technologies and interfaces for enterprise
@@ -288,7 +288,7 @@ export default function Neon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="card card-accent col-span-6 md:col-span-3 p-8 min-h-[240px] flex flex-col justify-between"
+            className="card card-accent col-span-6 md:col-span-3 p-8 min-h-60 flex flex-col justify-between"
             style={{ "--accent": neon.sky }}
           >
             <div className="mono text-[10px] tracking-wider text-dim">
@@ -321,7 +321,7 @@ export default function Neon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="card card-accent col-span-6 md:col-span-2 p-6 min-h-[240px] flex flex-col justify-between"
+            className="card card-accent col-span-6 md:col-span-2 p-6 min-h-60 flex flex-col justify-between"
             style={{ "--accent": neon.coral }}
           >
             <div className="mono text-[10px] tracking-wider text-dim">
@@ -404,7 +404,7 @@ export default function Neon() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.7 }}
-                className="card card-accent card-glow col-span-12 md:col-span-6 p-10 min-h-[420px] flex flex-col justify-between"
+                className="card card-accent card-glow col-span-12 md:col-span-6 p-10 min-h-105 flex flex-col justify-between"
                 style={{ "--accent": accent }}
               >
                 <div>
@@ -435,40 +435,16 @@ export default function Neon() {
             color={neon.magenta}
           />
           <div className="grid grid-cols-12 gap-4">
-            {projects.slice(0, 2).map((p, i) => (
+            {projects.map((p, i) => (
               <motion.div
                 key={p.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.7, delay: i * 0.08 }}
-                className="col-span-12 md:col-span-6"
-              >
-                <ProjectBentoCard p={p} size="large" />
-              </motion.div>
-            ))}
-            {projects.slice(2, 5).map((p, i) => (
-              <motion.div
-                key={p.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: i * 0.08 }}
-                className="col-span-12 md:col-span-4"
+                className="col-span-12 lg:col-span-4"
               >
                 <ProjectBentoCard p={p} size="medium" />
-              </motion.div>
-            ))}
-            {projects.slice(5).map((p, i) => (
-              <motion.div
-                key={p.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, delay: i * 0.08 }}
-                className="col-span-6 md:col-span-3"
-              >
-                <ProjectBentoCard p={p} size="small" />
               </motion.div>
             ))}
           </div>
@@ -494,7 +470,7 @@ export default function Neon() {
                   className={SKILL_SPAN[i]}
                   style={{ "--accent": s.color }}
                 >
-                  <div className="card card-accent p-8 min-h-[240px] flex flex-col justify-between">
+                  <div className="card card-accent p-8 min-h-60 flex flex-col justify-between">
                     <div className="flex items-start justify-between">
                       <div>
                         <div className="mono text-[10px] tracking-wider text-dim mb-3">
@@ -546,7 +522,7 @@ export default function Neon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="card card-accent card-glow col-span-12 md:col-span-8 p-10 min-h-[280px] flex flex-col justify-between"
+            className="card card-accent card-glow col-span-12 md:col-span-8 p-10 min-h-70 flex flex-col justify-between"
             style={{ "--accent": neon.amber }}
           >
             <div>
@@ -575,7 +551,7 @@ export default function Neon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="card card-accent card-glow col-span-12 md:col-span-4 p-8 min-h-[280px] flex flex-col justify-between"
+            className="card card-accent card-glow col-span-12 md:col-span-4 p-8 min-h-70 flex flex-col justify-between"
             style={{ "--accent": neon.mint }}
           >
             <div>
@@ -674,10 +650,10 @@ export default function Neon() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-span-8 md:col-span-4 text-mid text-[14px]">
+                  <div className="col-span-12 md:col-span-4 text-mid text-[14px]">
                     {e.role}
                   </div>
-                  <div className="col-span-4 md:col-span-3 mono text-[12px] text-dim text-right">
+                  <div className="col-span-12 md:col-span-3 mono text-[12px] text-dim md:text-right">
                     {e.period}
                   </div>
                 </div>

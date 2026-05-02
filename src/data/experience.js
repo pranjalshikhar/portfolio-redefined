@@ -22,6 +22,10 @@ export const experience = [
       insignia: "A",
       classification: "LEVEL 7 · ACTIVE",
     }),
+    ...(isWizarding && {
+      sigil: "A",
+      subtitle: "Order of Senior Analysts",
+    }),
   },
   {
     company: "Infosys",
@@ -38,6 +42,10 @@ export const experience = [
       insignia: "I",
       classification: "LEVEL 6 · ARCHIVED",
     }),
+    ...(isWizarding && {
+      sigil: "I",
+      subtitle: "Rank Ascended",
+    }),
   },
   {
     company: "Infosys",
@@ -53,6 +61,10 @@ export const experience = [
     ...(isComics && {
       insignia: "I",
       classification: "LEVEL 5 · ARCHIVED",
+    }),
+    ...(isWizarding && {
+      sigil: "I",
+      subtitle: "Induction into the Guild",
     }),
   },
 ];

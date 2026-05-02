@@ -20,13 +20,18 @@ const isWizarding = theme === "wizarding";
 export const skills = [
   {
     title: "Programming Languages",
-    items: ["JavaScript (ES6+)", "TypeScript", "Python", "C"],
+    items: ["JavaScript (ES6+)", "TypeScript", "Python", "C++"],
     icon: Code2,
     colorKey: "lime",
     ...(isComics && {
       subtitle: "THE CORE ARSENAL!",
       bg: "#fbbf24",
       sfx: "⚡",
+    }),
+    ...(isWizarding && {
+      title: "Ancient Tongues",
+      subTitle: "Programming Languages",
+      rune: "Ⓐ",
     }),
   },
   {
@@ -39,9 +44,14 @@ export const skills = [
       bg: "#dc2626",
       sfx: "💥",
     }),
+    ...(isWizarding && {
+      title: "Core Spellbooks",
+      subTitle: "Frontend Frameworks",
+      rune: "Ⓑ",
+    }),
   },
   {
-    title: "Styling & UI Systems",
+    title: "UI Systems",
     items: ["Tailwind CSS", "shadcn/ui", "Material UI", "Bootstrap"],
     icon: Palette,
     colorKey: "magenta",
@@ -49,6 +59,11 @@ export const skills = [
       subtitle: "SURFACE CRAFT!",
       bg: "#3b82f6",
       sfx: "✨",
+    }),
+    ...(isWizarding && {
+      title: "Robes & Regalia",
+      subTitle: "Styling & UI Systems",
+      rune: "Ⓒ",
     }),
   },
   {
@@ -61,6 +76,11 @@ export const skills = [
       bg: "#16a34a",
       sfx: "📡",
     }),
+    ...(isWizarding && {
+      title: "Owl Post Protocols",
+      subtitle: "Backend & APIs",
+      rune: "Ⓓ",
+    }),
   },
   {
     title: "Databases",
@@ -71,6 +91,11 @@ export const skills = [
       subtitle: "THE DATA VAULT!",
       bg: "#f97316",
       sfx: "🗄️",
+    }),
+    ...(isWizarding && {
+      title: "The Great Ledger",
+      subtitle: "Databases",
+      rune: "Ⓔ",
     }),
   },
   {
@@ -83,6 +108,11 @@ export const skills = [
       bg: "#0ea5e9",
       sfx: "🛡️",
     }),
+    ...(isWizarding && {
+      title: "Cloud Citadels",
+      subTitle: "Cloud & DevOps",
+      rune: "Ⓕ",
+    }),
   },
   {
     title: "Testing & Quality",
@@ -94,6 +124,11 @@ export const skills = [
       bg: "#0ea5e9",
       sfx: "🛡️",
     }),
+    ...(isWizarding && {
+      title: "Defense Arts",
+      subTitle: "Testing & Quality",
+      rune: "Ⓖ",
+    }),
   },
   {
     title: "Design & Collaboration",
@@ -104,6 +139,11 @@ export const skills = [
       subtitle: "BRIDGE OPERATIONS!",
       bg: "#ec4899",
       sfx: "✏️",
+    }),
+    ...(isWizarding && {
+      title: "The Drafting Table",
+      subtitle: "Design & Collaboration",
+      rune: "Ⓗ",
     }),
   },
   {
@@ -120,6 +160,11 @@ export const skills = [
       subtitle: "THE DOCTRINE!",
       bg: "#fbbf24",
       sfx: "🧠",
+    }),
+    ...(isWizarding && {
+      title: "Laws of Magic",
+      subTitle: "Software Engineering",
+      rune: "Ⓘ",
     }),
   },
 ];

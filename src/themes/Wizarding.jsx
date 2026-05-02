@@ -2,6 +2,11 @@ import { motion, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { FadeUp } from "../components/FadeUp";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
+import { experience } from "../data/experience";
+import { projects } from "../data/projects";
+import { skills } from "../data/skills";
+import "../styles/wizarding.css";
+import { getMonths, toRoman } from "../utils/date";
 
 export default function Wizarding() {
   const [spellCast, setSpellCast] = useState(false);
@@ -32,229 +37,6 @@ export default function Wizarding() {
     }
     setFootprints(trails);
   }, []);
-
-  const projects = [
-    {
-      name: "Aizen",
-      tag: "Potion of Presentation",
-      headline: "Transmutes code into art.",
-      desc: "An ancient enchantment that transforms mere source code into beautiful images and gifs — perfect for the discerning wizard's scroll.",
-      url: "https://aizen.netlify.app/",
-      house: "Ravenclaw",
-      seal: "🦅",
-      color: "#0e1a40",
-      accent: "#946b2d",
-    },
-    {
-      name: "Kamui",
-      tag: "Planner's Grimoire",
-      headline: "Kanban with superpowers.",
-      desc: "A magical board that organizes quests into columns, shuffling cards by will alone — for the wizard who must ship and slay.",
-      url: "https://kamui-kanban.netlify.app/",
-      house: "Slytherin",
-      seal: "🐍",
-      color: "#1a472a",
-      accent: "#aaaaaa",
-    },
-    {
-      name: "Potion",
-      tag: "Scribe's Sanctum",
-      headline: "A connected workspace.",
-      desc: "Better, faster, more magical work. Pages that link themselves, blocks that remember, a workspace that feels alive.",
-      url: "https://potion-write.vercel.app/",
-      house: "Hufflepuff",
-      seal: "🦡",
-      color: "#726255",
-      accent: "#ffdb00",
-    },
-    {
-      name: "Pokédex",
-      tag: "Beast Compendium",
-      headline: "Gotta catch 'em all.",
-      desc: "A creature index of rare beasts and their lore. Filter by type, study by stat, master every page.",
-      url: "https://pokedex-polly.netlify.app/",
-      house: "Gryffindor",
-      seal: "🦁",
-      color: "#7f0909",
-      accent: "#ffc500",
-    },
-    {
-      name: "Evo Gym",
-      tag: "Training Dojo",
-      headline: "Move, storied.",
-      desc: "A fitness landing where motion does the storytelling — strength training for body and browser.",
-      url: "https://evogymm.netlify.app/",
-      house: "Ravenclaw",
-      seal: "🦅",
-      color: "#0e1a40",
-      accent: "#946b2d",
-    },
-    {
-      name: "Nike Store",
-      tag: "Merchant's Stall",
-      headline: "Just scroll it.",
-      desc: "A product-focused marketplace with bold typography and motion hooks — ready to enchant any shopper.",
-      url: "https://nikestore-polly.netlify.app/",
-      house: "Gryffindor",
-      seal: "🦁",
-      color: "#7f0909",
-      accent: "#ffc500",
-    },
-    {
-      name: "Crypto Hunter",
-      tag: "Gringotts Ledger",
-      headline: "Live markets, decoded.",
-      desc: "Track the rise and fall of mystical currencies with live pricing — the goblins would approve.",
-      url: "https://crytocurrencyhunter.netlify.app/",
-      house: "Slytherin",
-      seal: "🐍",
-      color: "#1a472a",
-      accent: "#aaaaaa",
-    },
-    {
-      name: "Red Eye",
-      tag: "Oracle's Query",
-      headline: "What should you watch?",
-      desc: "A question-based divination system that reveals your cinematic soul — one tap at a time.",
-      url: "https://red-eye.netlify.app/",
-      house: "Hufflepuff",
-      seal: "🦡",
-      color: "#726255",
-      accent: "#ffdb00",
-    },
-    {
-      name: "Portfolio V3",
-      tag: "The Book Itself",
-      headline: "This is the scroll.",
-      desc: "The current portfolio — woven with Next.js and Tailwind CSS, sealed with care.",
-      url: "https://pranjalshikhar.vercel.app/",
-      house: "Ravenclaw",
-      seal: "🦅",
-      color: "#0e1a40",
-      accent: "#946b2d",
-    },
-  ];
-
-  const experience = [
-    {
-      company: "Accenture",
-      role: "Senior Analyst",
-      period: "May 2026 — Present",
-      active: true,
-      sigil: "A",
-      subtitle: "Order of Senior Analysts",
-    },
-    {
-      company: "Infosys",
-      role: "Digital Specialist Engineer L1",
-      period: "Jan 2026 — May 2026",
-      active: false,
-      sigil: "I",
-      subtitle: "Rank Ascended",
-    },
-    {
-      company: "Infosys",
-      role: "Digital Specialist Engineer",
-      period: "Jul 2022 — Dec 2025",
-      active: false,
-      sigil: "I",
-      subtitle: "Induction into the Guild",
-    },
-  ];
-
-  const skillsFull = [
-    {
-      title: "Ancient Tongues",
-      subtitle: "Programming Languages",
-      items: [
-        "JavaScript (ES6+)",
-        "TypeScript",
-        "Python (working knowledge)",
-        "C",
-      ],
-      rune: "Ⓐ",
-    },
-    {
-      title: "Core Spellbooks",
-      subtitle: "Frontend Frameworks & Libraries",
-      items: [
-        "React.js",
-        "Next.js",
-        "Redux Toolkit",
-        "Angular (exposure)",
-        "ReactFlow",
-      ],
-      rune: "Ⓑ",
-    },
-    {
-      title: "Robes & Regalia",
-      subtitle: "Styling & UI Systems",
-      items: ["Tailwind CSS", "shadcn/ui", "Material UI", "Bootstrap"],
-      rune: "Ⓒ",
-    },
-    {
-      title: "Owl Post Protocols",
-      subtitle: "Backend & APIs",
-      items: [
-        "REST APIs",
-        "GraphQL",
-        "API contract design",
-        ".NET Core integration",
-      ],
-      rune: "Ⓓ",
-    },
-    {
-      title: "The Great Ledger",
-      subtitle: "Databases",
-      items: ["MySQL (SQL)", "Azure CosmosDB (NoSQL)"],
-      rune: "Ⓔ",
-    },
-    {
-      title: "Cloud Citadels",
-      subtitle: "Cloud & DevOps",
-      items: [
-        "Microsoft Azure",
-        "Azure Blob Storage",
-        "Azure DevOps Pipelines",
-        "Firebase",
-      ],
-      rune: "Ⓕ",
-    },
-    {
-      title: "Defense Arts",
-      subtitle: "Testing & Quality",
-      items: [
-        "Jest",
-        "React Testing Library",
-        "Unit testing",
-        "Integration testing",
-      ],
-      rune: "Ⓖ",
-    },
-    {
-      title: "The Drafting Table",
-      subtitle: "Design & Collaboration",
-      items: [
-        "Figma",
-        "UI/UX prototyping",
-        "Developer handoff",
-        "Git",
-        "VS Code",
-      ],
-      rune: "Ⓗ",
-    },
-    {
-      title: "Laws of Magic",
-      subtitle: "Software Engineering",
-      items: [
-        "Component-driven architecture",
-        "Design principles",
-        "Performance optimization",
-        "Scalable frontend architecture",
-      ],
-      rune: "Ⓘ",
-    },
-  ];
 
   const houses = {
     gryffindor: {
@@ -292,262 +74,6 @@ export default function Wizarding() {
         fontFamily: "'Cormorant Garamond', 'EB Garamond', Georgia, serif",
       }}
     >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IM+Fell+English:ital@0;1&family=UnifrakturMaguntia&display=swap');
-
-        * { -webkit-font-smoothing: antialiased; }
-
-        .cinzel { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
-        .cinzel-dec { font-family: 'Cinzel Decorative', serif; letter-spacing: 0.04em; }
-        .fell { font-family: 'IM Fell English', serif; }
-        .fraktur { font-family: 'UnifrakturMaguntia', serif; }
-        .garamond { font-family: 'Cormorant Garamond', serif; }
-
-        /* Parchment texture */
-        .parchment {
-          background-color: #f4e4bc;
-          background-image:
-            radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.15), transparent 50%),
-            radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.18), transparent 50%),
-            radial-gradient(ellipse at 50% 50%, rgba(180, 140, 80, 0.08), transparent 70%);
-          color: #2a1810;
-          position: relative;
-        }
-        .parchment::before {
-          content: '';
-          position: absolute; inset: 0;
-          background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.28 0 0 0 0 0.15 0 0 0 0.15 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-          pointer-events: none;
-          mix-blend-mode: multiply;
-          opacity: 0.4;
-          border-radius: inherit;
-        }
-        .parchment::after {
-          content: '';
-          position: absolute; inset: 0;
-          background:
-            radial-gradient(ellipse at top left, transparent 60%, rgba(70, 40, 15, 0.25)),
-            radial-gradient(ellipse at bottom right, transparent 60%, rgba(70, 40, 15, 0.3));
-          pointer-events: none;
-          border-radius: inherit;
-        }
-
-        /* Dark aged parchment-map background (Marauder's Map feel) */
-        .velvet {
-          background-color: #2a1810;
-          background-image:
-            /* Aged brown parchment tint */
-            radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.25), transparent 55%),
-            radial-gradient(ellipse at 80% 70%, rgba(101, 67, 33, 0.3), transparent 55%),
-            radial-gradient(ellipse at 50% 50%, rgba(60, 35, 15, 0.5), transparent 80%),
-            linear-gradient(180deg, #1f1208 0%, #140a04 50%, #1a0f08 100%);
-        }
-
-        /* The map layer — fine grid + ink lines + room outlines */
-        .map-layer {
-          position: fixed;
-          inset: 0;
-          pointer-events: none;
-          z-index: 0;
-          opacity: 0.35;
-          background-image:
-            /* Horizontal ink rule lines */
-            linear-gradient(0deg, transparent 95%, rgba(148, 107, 45, 0.25) 100%),
-            /* Vertical ink rule lines */
-            linear-gradient(90deg, transparent 95%, rgba(148, 107, 45, 0.2) 100%),
-            /* Parchment grain */
-            url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.58 0 0 0 0 0.42 0 0 0 0 0.18 0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-          background-size: 80px 80px, 80px 80px, 400px 400px;
-          mix-blend-mode: overlay;
-        }
-
-        /* Hand-drawn map ink illustrations — corridors, rooms, doors */
-        .map-illustrations {
-          position: fixed;
-          inset: 0;
-          pointer-events: none;
-          z-index: 0;
-          opacity: 0.22;
-        }
-
-        /* Footprint animation — the classic Marauder's Map element */
-        @keyframes footprint-trail {
-          0% { opacity: 0; transform: scale(0.5) rotate(var(--rot)); }
-          15% { opacity: 0.9; transform: scale(1) rotate(var(--rot)); }
-          70% { opacity: 0.7; transform: scale(1) rotate(var(--rot)); }
-          100% { opacity: 0; transform: scale(1) rotate(var(--rot)); }
-        }
-        .footprint {
-          position: fixed;
-          width: 14px;
-          height: 18px;
-          pointer-events: none;
-          z-index: 1;
-          opacity: 0;
-          animation: footprint-trail 12s ease-in-out infinite;
-          filter: drop-shadow(0 0 3px rgba(139, 90, 43, 0.6));
-        }
-
-        /* Compass rose — rotating at corners */
-        @keyframes rotate-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .compass {
-          position: fixed;
-          width: 120px;
-          height: 120px;
-          pointer-events: none;
-          opacity: 0.12;
-          z-index: 1;
-          animation: rotate-slow 60s linear infinite;
-          color: #946b2d;
-        }
-
-        /* Gold foil text */
-        .gold-foil {
-          background: linear-gradient(135deg, #d4af37 0%, #ffd700 25%, #b8860b 50%, #ffd700 75%, #d4af37 100%);
-          background-size: 200% 200%;
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: shimmer 6s ease-in-out infinite;
-        }
-        @keyframes shimmer {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-
-        /* Ornamental divider */
-        .ornate-divider {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          color: #946b2d;
-        }
-        .ornate-divider::before, .ornate-divider::after {
-          content: '';
-          flex: 1;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #946b2d, transparent);
-        }
-
-        /* Wax seal */
-        .wax-seal {
-          width: 80px; height: 80px;
-          border-radius: 50%;
-          background: radial-gradient(circle at 30% 30%, #c91818 0%, #7f0909 60%, #4a0404 100%);
-          box-shadow:
-            inset -3px -3px 8px rgba(0,0,0,0.5),
-            inset 3px 3px 8px rgba(255,200,200,0.2),
-            0 4px 12px rgba(0,0,0,0.6);
-          display: flex; align-items: center; justify-content: center;
-          position: relative;
-        }
-        .wax-seal::before {
-          content: '';
-          position: absolute;
-          inset: 6px;
-          border: 1px dashed rgba(255,200,200,0.3);
-          border-radius: 50%;
-        }
-
-        /* Scroll appearance animation */
-        @keyframes unfurl {
-          0% { transform: scaleY(0); transform-origin: top; }
-          100% { transform: scaleY(1); }
-        }
-
-        /* Letter envelope */
-        .envelope {
-          background: linear-gradient(135deg, #e8d4a0 0%, #d4b088 50%, #c4a070 100%);
-          border: 1px solid #8b5a2b;
-          position: relative;
-          transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        /* Spell sparkle cursor */
-        @keyframes sparkle-fade {
-          0% { opacity: 1; transform: scale(0) rotate(0deg); }
-          100% { opacity: 0; transform: scale(1.5) rotate(180deg); }
-        }
-
-        /* House ribbon */
-        .house-ribbon {
-          position: absolute;
-          top: 0; right: 24px;
-          width: 32px;
-          background: var(--house-color);
-          color: var(--house-accent);
-          padding: 28px 4px 12px;
-          text-align: center;
-          font-size: 10px;
-          letter-spacing: 0.2em;
-          writing-mode: vertical-rl;
-          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), 50% 100%, 0 calc(100% - 8px));
-          font-family: 'Cinzel', serif;
-          font-weight: 600;
-          text-transform: uppercase;
-        }
-
-        /* Runic border */
-        .runic-frame {
-          position: relative;
-          border: 1px solid rgba(148, 107, 45, 0.4);
-        }
-        .runic-frame::before {
-          content: '✦';
-          position: absolute;
-          top: -12px; left: 20px;
-          background: #1a0f08;
-          color: #946b2d;
-          padding: 0 8px;
-          font-size: 16px;
-        }
-
-        /* Tile hover lift */
-        .lift { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s; }
-        .lift:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212, 175, 55, 0.15); }
-
-        /* Nav */
-        .nav-wizard {
-          background: linear-gradient(180deg, rgba(26, 15, 8, 0.95) 0%, rgba(26, 15, 8, 0.8) 100%);
-          backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        /* Ornamental initial cap */
-        .drop-cap::first-letter {
-          font-family: 'UnifrakturMaguntia', serif;
-          float: left;
-          font-size: 4.5rem;
-          line-height: 0.85;
-          padding: 4px 10px 0 0;
-          color: #7f0909;
-          font-weight: 700;
-        }
-
-        /* Project map line */
-        .map-line {
-          stroke-dasharray: 4 4;
-          animation: dash 20s linear infinite;
-        }
-        @keyframes dash {
-          to { stroke-dashoffset: -100; }
-        }
-
-        /* Wand glow cursor trail */
-        .wand-cursor {
-          position: fixed;
-          width: 8px; height: 8px;
-          background: radial-gradient(circle, #ffd700 0%, rgba(255, 215, 0, 0) 70%);
-          border-radius: 50%;
-          pointer-events: none;
-          z-index: 1000;
-          mix-blend-mode: screen;
-        }
-      `}</style>
-
       {/* ================ MARAUDER'S MAP BACKGROUND ================ */}
 
       {/* Base velvet + aged parchment tint */}
@@ -915,7 +441,7 @@ export default function Wizarding() {
       <div className="relative z-10">
         {/* ==================== NAV ==================== */}
         <nav className="nav-wizard sticky top-0 z-40">
-          <div className="max-w-[1100px] mx-auto px-6 h-14 flex items-center justify-between">
+          <div className="max-w-275 mx-auto px-6 h-14 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <svg
                 width="24"
@@ -976,7 +502,7 @@ export default function Wizarding() {
 
         {/* ==================== HERO ==================== */}
         <section ref={heroRef} className="pt-16 pb-20 px-6 text-center">
-          <div className="max-w-[1100px] mx-auto">
+          <div className="max-w-275 mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -1096,7 +622,7 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== SORTING HAT BANNER ==================== */}
-        <div className="max-w-[1100px] mx-auto px-6 my-12">
+        <div className="max-w-275 mx-auto px-6 my-12">
           <div
             className="text-center cinzel text-[10px] tracking-[0.4em]"
             style={{ color: "#946b2d" }}
@@ -1107,7 +633,7 @@ export default function Wizarding() {
         </div>
 
         {/* ==================== THE LETTER (SUMMARY) ==================== */}
-        <section id="scroll" className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section id="scroll" className="max-w-275 mx-auto px-6 mb-16">
           <div className="text-center mb-10">
             <div
               className="cinzel text-[11px] tracking-[0.3em] mb-2"
@@ -1122,7 +648,7 @@ export default function Wizarding() {
 
           <FadeUp>
             <div
-              className="parchment rounded-[2px] p-10 md:p-20 shadow-2xl relative"
+              className="parchment rounded-xs p-10 md:p-20 shadow-2xl relative"
               style={{
                 boxShadow:
                   "0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(212, 175, 55, 0.1)",
@@ -1230,7 +756,9 @@ export default function Wizarding() {
                       className="fell italic text-[11px] mt-1"
                       style={{ color: "#5a3a1a" }}
                     >
-                      the 18th of April, MMXXVI
+                      the {toRoman(new Date().getDate())}{" "}
+                      {getMonths(new Date().getUTCMonth())},{" "}
+                      {toRoman(new Date().getFullYear())}
                     </div>
                   </div>
                 </div>
@@ -1240,7 +768,7 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== ABOUT TWO-UP ==================== */}
-        <section className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section className="max-w-275 mx-auto px-6 mb-16">
           <div className="text-center mb-10">
             <div
               className="cinzel text-[11px] tracking-[0.3em] mb-2"
@@ -1255,7 +783,7 @@ export default function Wizarding() {
 
           <div className="grid grid-cols-12 gap-4">
             <FadeUp className="col-span-12 md:col-span-7">
-              <div className="parchment rounded-sm p-10 md:p-14 min-h-[520px] relative lift">
+              <div className="parchment rounded-sm p-10 md:p-14 min-h-130 relative lift">
                 <div className="relative">
                   <div
                     className="cinzel text-[10px] tracking-[0.3em] mb-4"
@@ -1303,7 +831,7 @@ export default function Wizarding() {
 
             <FadeUp className="col-span-12 md:col-span-5">
               <div
-                className="rounded-sm p-10 md:p-12 min-h-[520px] lift relative overflow-hidden"
+                className="rounded-sm p-10 md:p-12 min-h-130 lift relative overflow-hidden"
                 style={{
                   background:
                     "linear-gradient(135deg, #0e1a40 0%, #1a2b5a 50%, #0e1a40 100%)",
@@ -1365,7 +893,7 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== HOUSE CRESTS (STATS) ==================== */}
-        <section className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section className="max-w-275 mx-auto px-6 mb-16">
           <div className="grid grid-cols-12 gap-4">
             {[
               {
@@ -1401,7 +929,7 @@ export default function Wizarding() {
             ].map((h, i) => (
               <FadeUp key={h.house} className="col-span-12 md:col-span-4">
                 <div
-                  className="rounded-sm p-8 min-h-[380px] lift relative overflow-hidden flex flex-col justify-between"
+                  className="rounded-sm p-8 min-h-95 lift relative overflow-hidden flex flex-col justify-between"
                   style={{
                     background: `linear-gradient(135deg, ${h.color} 0%, ${h.color}dd 100%)`,
                     border: `1px solid ${h.accent}44`,
@@ -1479,7 +1007,7 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== WORKS (MARAUDER'S MAP) ==================== */}
-        <section id="works" className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section id="works" className="max-w-275 mx-auto px-6 mb-16">
           <div className="text-center mb-12">
             <div
               className="cinzel text-[11px] tracking-[0.3em] mb-2"
@@ -1520,7 +1048,7 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== SKILLS / ARTS OF MAGIC ==================== */}
-        <section id="arts" className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section id="arts" className="max-w-275 mx-auto px-6 mb-16">
           <div className="text-center mb-12">
             <div
               className="cinzel text-[11px] tracking-[0.3em] mb-2"
@@ -1537,7 +1065,7 @@ export default function Wizarding() {
           </div>
 
           <div className="grid grid-cols-12 gap-4">
-            {skillsFull.map((s, i) => {
+            {skills.map((s, i) => {
               const spanMap = [
                 "col-span-12 md:col-span-6",
                 "col-span-12 md:col-span-6",
@@ -1554,7 +1082,7 @@ export default function Wizarding() {
               return (
                 <FadeUp key={s.title} className={spanMap[i]}>
                   <div
-                    className={`rounded-sm p-8 md:p-10 min-h-[280px] lift relative flex flex-col justify-between overflow-hidden ${isParchment ? "parchment" : ""}`}
+                    className={`rounded-sm p-8 md:p-10 min-h-70 lift relative flex flex-col justify-between overflow-hidden ${isParchment ? "parchment" : ""}`}
                     style={
                       !isParchment
                         ? {
@@ -1572,7 +1100,7 @@ export default function Wizarding() {
                           style={{ color: isParchment ? "#7f0909" : "#946b2d" }}
                         >
                           ✦ SPELL {String(i + 1).padStart(2, "0")} ·{" "}
-                          {s.subtitle.toUpperCase()} ✦
+                          {s.subTitle} ✦
                         </div>
                         <div
                           className="cinzel-dec text-2xl"
@@ -1616,10 +1144,10 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== CAPABILITIES ==================== */}
-        <section className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section className="max-w-275 mx-auto px-6 mb-16">
           <div className="grid grid-cols-12 gap-4">
             <FadeUp className="col-span-12 md:col-span-8">
-              <div className="parchment rounded-sm p-10 md:p-12 min-h-[360px] lift flex flex-col justify-between">
+              <div className="parchment rounded-sm p-10 md:p-12 min-h-90 lift flex flex-col justify-between">
                 <div className="relative">
                   <div
                     className="cinzel text-[10px] tracking-[0.3em] mb-4"
@@ -1650,7 +1178,7 @@ export default function Wizarding() {
 
             <FadeUp className="col-span-12 md:col-span-4">
               <div
-                className="rounded-sm p-8 min-h-[360px] lift relative overflow-hidden flex flex-col justify-between"
+                className="rounded-sm p-8 min-h-90 lift relative overflow-hidden flex flex-col justify-between"
                 style={{
                   background:
                     "linear-gradient(135deg, #7f0909 0%, #c91818 50%, #7f0909 100%)",
@@ -1695,7 +1223,7 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== CHRONICLES (EXPERIENCE) ==================== */}
-        <section id="chronicles" className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section id="chronicles" className="max-w-275 mx-auto px-6 mb-16">
           <div className="text-center mb-12">
             <div
               className="cinzel text-[11px] tracking-[0.3em] mb-2"
@@ -1726,7 +1254,7 @@ export default function Wizarding() {
                 {experience.map((e, i) => (
                   <div key={i} className="flex gap-6 md:gap-8">
                     {/* Sigil */}
-                    <div className="relative flex-shrink-0 z-10">
+                    <div className="relative shrink-0 z-10">
                       <div
                         className="w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center cinzel-dec text-2xl font-black"
                         style={{
@@ -1815,7 +1343,7 @@ export default function Wizarding() {
         </section>
 
         {/* ==================== OWL POST (CONTACT) ==================== */}
-        <section id="owl" className="max-w-[1100px] mx-auto px-6 mb-16">
+        <section id="owl" className="max-w-275 mx-auto px-6 mb-16">
           <FadeUp>
             <div
               className="rounded-sm p-12 md:p-20 text-center relative overflow-hidden"
@@ -1910,7 +1438,7 @@ export default function Wizarding() {
 
         {/* ==================== FOOTER ==================== */}
         <footer
-          className="max-w-[1100px] mx-auto px-6 py-12 border-t"
+          className="max-w-275 mx-auto px-6 py-12 border-t"
           style={{ borderColor: "rgba(212, 175, 55, 0.2)" }}
         >
           <div className="text-center">
@@ -1924,7 +1452,8 @@ export default function Wizarding() {
               className="cinzel text-[10px] tracking-[0.3em] mb-2"
               style={{ color: "#946b2d" }}
             >
-              ⚜ MMXXVI · PRANJAL SHIKHAR SINHA · PUNE, INDIA ⚜
+              ⚜ {toRoman(new Date().getFullYear())} · PRANJAL SHIKHAR SINHA ·
+              PUNE, INDIA ⚜
             </div>
             <div
               className="fell italic text-[13px]"

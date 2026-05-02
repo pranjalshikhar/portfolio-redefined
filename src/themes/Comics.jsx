@@ -488,7 +488,7 @@ export default function Comics() {
               >
                 <div className="absolute inset-0 dots-yellow opacity-20" />
                 <div
-                  className="absolute -top-4 -right-4 sfx-text text-3xl"
+                  className="absolute top-2 right-2 sfx-text text-3xl"
                   style={{ transform: "rotate(12deg)" }}
                 >
                   {s.sfx}
@@ -664,9 +664,9 @@ export default function Comics() {
             >
               <div className="absolute top-0 right-0 w-40 h-40 dots-red opacity-40" />
               <div className="relative">
-                <div className="caption-box inline-block mb-5">
+                {/* <div className="caption-box inline-block mb-5">
                   ★ THE CREED ★
-                </div>
+                </div> */}
                 <h3 className="bangers text-4xl md:text-5xl leading-[0.95] mb-5">
                   FROM{" "}
                   <span
